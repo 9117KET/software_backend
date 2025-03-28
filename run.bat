@@ -1,6 +1,7 @@
 @echo off
 set SPRING_DATASOURCE_USERNAME=postgres
 set SPRING_DATASOURCE_PASSWORD=PzvtlSLIhZUZdSNzJsPvfxzlYqCPzbqu
+set SPRING_DATASOURCE_URL=jdbc:postgresql://maglev.proxy.rlwy.net:44972/railway
 set SPRING_MAIL_HOST=smtp.gmail.com
 set SPRING_MAIL_PORT=587
 set SPRING_MAIL_USERNAME=dashpress1000@gmail.com
