@@ -1,9 +1,9 @@
 package com.seproject.backend.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
-import java.util.List;
+import java.time.LocalDateTime;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * User Entity
@@ -21,6 +21,7 @@ import lombok.Data;
 @Entity
 @Table(name = "users")
 @Data
+@NoArgsConstructor
 public class User {
     
     @Id
@@ -28,29 +29,28 @@ public class User {
     @Column(name = "user_id")
     private Long userId;
 
-    @Column(name = "first_name", nullable = false)
+    @Column(name = "first_name", nullable = false, length = 100)
     private String firstName;
 
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "email", length = 255, nullable = false)
     private String email;
 
-    private LocalDate birthdate;
+    // ISO-8601
+    @Column(name = "birthdate")
+    private LocalDateTime birthdate;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "username", nullable = false, length = 100)
     private String username;
 
-    @Column(nullable = false)
+    @Column(name = "password", nullable = false, length = 100)
     private String password;
 
-    @Column(nullable = false)
-    private String role = "user";
+    @Column(name = "role", nullable = false, length = 50)
+    private String role;
 
-    @Column(nullable = false)
-    private boolean verified = false;
-
-    @OneToMany(mappedBy = "sender", cascade = CascadeType.ALL)
-    private List<ChatMessage> messages;
+    @Column(name = "verified", nullable = false)
+    private boolean verified;
 }

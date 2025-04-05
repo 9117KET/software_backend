@@ -6,7 +6,7 @@ import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Past;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 public class UserRegistration {
@@ -26,12 +26,11 @@ public class UserRegistration {
     private String email;
 
     @Past(message = "Birthdate must be in the past")
-    private LocalDate birthdate;
+    private LocalDateTime birthdate;
 
     @NotEmpty(message = "Username is required")
     @Size(min = 3, max = 20, message = "Username must be between 3 and 20 characters")
     @Pattern(regexp = "^\\S+$", message = "Username must not contain spaces")
-
     private String username;
 
     @NotEmpty(message = "Password is required")

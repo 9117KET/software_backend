@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends JpaRepository<User, Long> {
+public interface UserRepository extends JpaRepository<User, Integer> {
     @Query(value = "SELECT * FROM users u WHERE u.username = ?1 OR u.email = ?1 LIMIT 1", nativeQuery = true)
     Optional<User> findByUsernameOrEmail(String username);
 
